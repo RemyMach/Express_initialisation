@@ -17,6 +17,18 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/about', (req, res) => {
+    res.render('about', {
+        about : 'c\'est une pomme'
+    })
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        aide : 'c\'est une aide'
+    })
+})
+
 app.get('/weather', (req, res) => {
     res.send({
         degrees : 28,
