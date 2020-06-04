@@ -49,12 +49,16 @@ app.get('/weather', (req, res) => {
 })
 
 app.get('/help/*', (req, res) => {
-    res.send('help article not found')
+    res.render('404',{
+        errorMessage: 'Article Not found'
+    })
 })
 
 //page par défaut si on ne match pas d'URL
 app.get('*', (req, res) => {
-    res.send('page 404')
+    res.render('404',{
+        errorMessage: 'page 404'
+    })
 })
 
 app.listen(3000, () => {
