@@ -1,26 +1,31 @@
+const path = require('path')
 const express = require('express')
 
 const app = express()
+const publicDirectoryPath = path.join(__dirname, '../public/HTML')
+
+// on utilise express.static pour rendre des fichiers static (CSS, JS, HTML...)
+app.use('/',express.static(publicDirectoryPath))
+// on peut avoir accès à about.html et help.html en tapant le nom complet du coup
 
 // app.com
 // app.com/help
 // app.com/about
 
-//on décrie ce qu'on veut faire avec la fonction quand la personne visite cet url
-app.get('', (req , res) => {
-    res.send('<h1>Hello express</h1>')
-})
+// app.get('/', (req, res) => {
+//     res.send('<h1>Hello Home</h1>')
+// })
 
-app.get('/help', (req, res) => {
-    res.send({
-        name: 'tom',
-        age: 24
-    })
-})
+// app.get('/help', (req, res) => {
+//     res.send({
+//         name: 'tom',
+//         age: 24
+//     })
+// })
 
-app.get('/about', (req, res) => {
-    res.send('<h1>Hello about</h1>')
-})
+// app.get('/about', (req, res) => {
+//     res.send('<h1>Hello about</h1>')
+// })
 
 app.get('/weather', (req, res) => {
     res.send({
