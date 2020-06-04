@@ -6,7 +6,16 @@ const publicDirectoryPath = path.join(__dirname, '../public/')
 
 // on utilise express.static pour rendre des fichiers static (CSS, JS, HTML...)
 app.use('/',express.static(publicDirectoryPath))
-// on peut avoir accès à about.html et help.html en tapant le nom complet du coup
+
+//on set l'engine view
+app.set('view engine', 'hbs')
+
+//on effectue le rendu avec système de templating
+app.get('/', (req, res) => {
+    res.render('index', {
+        title : 'Weather app'
+    })
+})
 
 app.get('/weather', (req, res) => {
     res.send({
