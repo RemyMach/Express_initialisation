@@ -10,6 +10,10 @@ app.use('/',express.static(publicDirectoryPath))
 //on set l'engine view
 app.set('view engine', 'hbs')
 
+//on set le chemin où l'on va chercher les vues
+const viewsPath = path.join(__dirname, '../templates')
+app.set('views', viewsPath)
+
 //on effectue le rendu avec système de templating
 app.get('/', (req, res) => {
     res.render('index', {
