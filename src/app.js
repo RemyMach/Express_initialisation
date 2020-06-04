@@ -48,6 +48,15 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/help/*', (req, res) => {
+    res.send('help article not found')
+})
+
+//page par défaut si on ne match pas d'URL
+app.get('*', (req, res) => {
+    res.send('page 404')
+})
+
 app.listen(3000, () => {
     console.log('Server is up on port 3000')
 })
