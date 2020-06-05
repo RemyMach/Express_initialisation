@@ -5,6 +5,11 @@ body {
     /* value for haut et bas puis gauche et droite*/
     margin: 0 auto;
     padding: 0 16px;
+    /*vh veut dire view port height donc taille de la fenêtre*/
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -30,6 +35,11 @@ header a {
     text-decoration: none;
 }
 
-img {
+.portrait {
     width: 100px;
+}
+
+.main-content {
+    /*prendre tout l'espace*/
+    flex-grow: 1;
 }

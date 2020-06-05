@@ -48,6 +48,21 @@ app.get('/weather', (req, res) => {
     })
 })
 
+//requete puis response
+app.get('/product', (req, res) => {
+    if(!req.query.search) {
+        return res.send({
+            error: 'you need to provide a new search'
+        })
+    }
+
+    console.log(req.query.search)
+    res.send({
+        products: []
+    })
+
+})
+
 app.get('/help/*', (req, res) => {
     res.render('404',{
         errorMessage: 'Article Not found'
