@@ -42,9 +42,14 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
+    if(!req.query.adress) {
+        return res.send({
+            error: 'you need to provide an adress'
+        })
+    }
+
     res.send({
-        degrees : 28,
-        location: 'Paris'
+        adress : req.query.adress,
     })
 })
 
