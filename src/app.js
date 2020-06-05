@@ -71,9 +71,16 @@ app.get('/weather', (req, res) => {
                         errorCode: 400
                     })
                 }
-                return res.send({
-                    adress : req.query.adress,
-                    success,
+                const forecastSuccess = success
+                weather(latitude, longitude, (error, success) => {
+                    if(error){
+                        return console.log('Error: ' + error )
+                    }
+                    return res.send({
+                        adress : req.query.adress,
+                        location: forecastSuccess,
+                        success
+                    })
                 })
             })
         
