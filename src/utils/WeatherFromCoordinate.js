@@ -11,7 +11,7 @@ const weather = (latitude, longitude, callback) => {
             const wind_speed = response.data.current.wind_speed
             const humidity = response.data.current.humidity
             callback(undefined, 'It is currently ' + temperature + ' degrees out. There is a ' + precipitation + '% chance of rain.' +
-            'it\'s feelslike ' + feelslike + ' degrees. Le vent a une vitesse de ' + wind_speed + 'km/h et une humidité de ' + humidity + '%.' )
+            'it\'s feelslike ' + feelslike + ' degrees. Le wind has a speed of ' + wind_speed + 'km/h.You have a humidity of ' + humidity + '%.' )
         })
         .catch((error) => {
             // handle error
