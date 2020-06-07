@@ -7,7 +7,11 @@ const weather = (latitude, longitude, callback) => {
         .then((response) => {
             const temperature = response.data.current.temperature
             const precipitation = response.data.current.precip
-            callback(undefined, 'It is currently ' + temperature + ' degrees out. There is a ' + precipitation + '% chance of rain')
+            const feelslike = response.data.current.feelslike
+            const wind_speed = response.data.current.wind_speed
+            const humidity = response.data.current.humidity
+            callback(undefined, 'It is currently ' + temperature + ' degrees out. There is a ' + precipitation + '% chance of rain.' +
+            'it\'s feelslike ' + feelslike + ' degrees. Le vent a une vitesse de ' + wind_speed + 'km/h et une humidité de ' + humidity + '%.' )
         })
         .catch((error) => {
             // handle error
