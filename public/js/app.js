@@ -1,7 +1,7 @@
 //on utilise l'api de fetch qui n'est accessible que des navigateurs
 console.log('je suis dans le côté client')
 
-fetch('http://localhost:3000/weather?adress=Boston').then((response) => {
+fetch('/weather?adress=Boston').then((response) => {
     response.json().then((data) => {
         if(data.error){
             console.log(data.error)
@@ -23,17 +23,17 @@ weatherForm.addEventListener('submit', (e) => {
     if(location != ''){
         messageOne.textContent = 'loading...'
         messageTwo.textContent = ''
-        fetch('http://localhost:3000/weather?adress=' + location).then((response) => {
+        fetch('/weather?adress=' + location).then((response) => {
             response.json().then((data) => {
-        if(data.error){
-            messageOne.textContent = data.error
-            messageTwo.textContent = ''
-            console.log(data.error)
-        }else{
-            messageOne.textContent = data.location.location
-            messageTwo.textContent = data.success
-            console.log(data)
-        }
+            if(data.error){
+                messageOne.textContent = data.error
+                messageTwo.textContent = ''
+                console.log(data.error)
+            }else{
+                messageOne.textContent = data.location.location
+                messageTwo.textContent = data.success
+                console.log(data)
+            }
     })
 })
     }
